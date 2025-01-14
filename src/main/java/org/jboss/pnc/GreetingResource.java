@@ -8,7 +8,9 @@ import jakarta.ws.rs.core.MediaType;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.pnc.rex.client.api.TaskEndpointApi;
 import org.jboss.pnc.rex.client.api.VersionEndpointApi;
-import org.jboss.pnc.rex.client.model.TaskSetResponse;
+import org.jboss.pnc.rex.client.model.TaskDTO;
+
+import java.util.Set;
 
 @Path("/hello")
 public class GreetingResource {
@@ -22,10 +24,9 @@ public class GreetingResource {
     TaskEndpointApi taskEndpointApi;
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public String hello() {
-        TaskSetResponse response = taskEndpointApi.getAll(false, null, null);
-        return response.toString();
-//        return "here";
+        Set<TaskDTO> tasks = taskEndpointApi.getAll(false, null, null);
+        return tasks.toString();
     }
 }
