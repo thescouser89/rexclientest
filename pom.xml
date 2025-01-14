@@ -53,19 +53,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>org.jboss.pnc</groupId>
+            <artifactId>pnc-api</artifactId>
+            <version>3.0.5</version>
+        </dependency>
+        <dependency>
           <groupId>org.jboss.pnc.rex</groupId>
           <artifactId>rest-client</artifactId>
           <version>1.0.2-SNAPSHOT</version>
-          <exclusions>
-              <exclusion>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-rest-client-reactive</artifactId>
-              </exclusion>
-              <exclusion>
-                <groupId>io.quarkus</groupId>
-                <artifactId>quarkus-rest-client-reactive-jackson</artifactId>
-              </exclusion>
-          </exclusions>
+            <!--<scope>system</scope>
+            <systemPath>../rex/rest-client/target/rest-client-1.0.2-SNAPSHOT.jar</systemPath> -->
         </dependency>
     </dependencies>
 
